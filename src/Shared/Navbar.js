@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
@@ -23,13 +24,13 @@ const Navbar = () => {
         <div className="relative flex items-center justify-between">
           <Link
             to="/"
-            aria-label="Tutor Pro"
-            title="Tutor Pro"
+            aria-label="CarMax"
+            title="CarMax"
             className="inline-flex items-center"
           >
-            <img className="w-16 rounded-md" src='#' alt="" />
+            <img className="w-16 rounded-md" src={logo} alt="" />
             <span className="ml-2 text-4xl  font-bold tracking-wide text-cyan-400 ">
-              Tutor Pro
+              CarMax
             </span>
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -158,13 +159,13 @@ const Navbar = () => {
                     <div>
                       <Link
                         to="/"
-                        aria-label="Tutor Pro"
-                        title="Tutor Pro"
+                        aria-label="CarMax"
+                        title="CarMax"
                         className="inline-flex items-center"
                       >
-                        {/* <img className="w-16 rounded-md" src={logo} alt="" /> */}
+                        <img className="w-16 rounded-md" src={logo} alt="" />
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          Tutor Pro
+                          CarMax
                         </span>
                       </Link>
                     </div>

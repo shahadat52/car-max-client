@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -10,11 +11,11 @@ const Footer = () => {
           <Link className="flex justify-center space-x-3 lg:justify-start">
             <div className="flex items-center justify-center w-24 h-24 rounded-full bg-black">
               <p className="text-5xl text-blue-400">
-                {/* <img src={logo} alt="" /> */}
+                <img src={logo} alt="" />
               </p>
             </div>
             <span className="self-center text-4xl text-cyan-700 font-bold">
-              Tutor Plus
+              CarMax
             </span>
           </Link>
         </div>
@@ -37,7 +38,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="space-y-3">
-            <h3 className="tracking-wide uppercase ">Tutor Plus</h3>
+            <h3 className="tracking-wide uppercase ">CarMax</h3>
             <ul className="space-y-1">
               <li>
                 <Link to="/about">Privacy</Link>
@@ -110,7 +111,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="py-6 text-sm text-center text-gray-700">
-        © 2022 Tutor Plus Inc. All rights reserved.
+        © 2022 CarMax Inc. All rights reserved.
       </div>
     </footer>
   );

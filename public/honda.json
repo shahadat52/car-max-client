@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Honda Civic",
+    "company": "honda",
+    "img": "https://carnetwork.s3.ap-southeast-1.amazonaws.com/file/37c5f951ffbc44f2b3c9da118fb81c00.jpg",
+    "resellPrice": "12000",
+    "newPrice": "16500",
+    "location": "banani,dhaka",
+    "usingTime": "1.5",
+    "seller": "akram khan",
+    "verified": "",
+    "time": "09:00 PM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  },
+  {
+    "title": "Honda HR-V",
+    "company": "honda",
+    "img": "https://www.driving.co.uk/wp-content/uploads/sites/5/2021/04/Honda-HR-V-05.jpg",
+    "resellPrice": "15000",
+    "newPrice": "20000",
+    "location": "Gulshan,dhaka",
+    "usingTime": "2",
+    "seller": "Jahir Chowdhury",
+    "verified": "",
+    "time": "05:00 PM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  },
+  {
+    "title": "Honda Vezel",
+    "company": "honda",
+    "img": "https://cdn.motor1.com/images/mgl/AvqeV/s1/2021-honda-vezel-by-mugen.jpg",
+    "resellPrice": "15500",
+    "newPrice": "23000",
+    "location": "Baridhara,dhaka",
+    "usingTime": "2",
+    "seller": "Aminul Islam",
+    "verified": "",
+    "time": "12:30 PM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  },
+  {
+    "title": "Honda NSX",
+    "company": "honda",
+    "img": "https://res.cloudinary.com/caradvice/image/private/q_auto/v1563136929/m2rdigpbewcm5o74zbxs.jpg",
+    "resellPrice": "22000",
+    "newPrice": "30000",
+    "location": "Uttara,dhaka",
+    "usingTime": "12",
+    "seller": "Jobaer Ahmed",
+    "verified": "",
+    "time": "10:30 AM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  },
+  {
+    "title": "Honda Aspire",
+    "company": "honda",
+    "img": "https://hondamultan.com.pk/wp-content/uploads/2020/05/1-1.jpg",
+    "resellPrice": "32000",
+    "newPrice": "25000",
+    "location": "Gulshan,dhaka",
+    "usingTime": "6",
+    "seller": "Sharif ahmed",
+    "verified": "",
+    "time": "10:30 AM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  },
+  {
+    "title": "Honda City",
+    "company": "honda",
+    "img": "https://paultan.org/image/2020/10/Honda_City_E_Modulo_Launch_Malaysia_Ext-2.jpg",
+    "resellPrice": "40000",
+    "newPrice": "33000",
+    "location": "Dhanmondi,dhaka",
+    "usingTime": "6",
+    "seller": "Nasir Chowdhuri",
+    "verified": "",
+    "time": "9:00 AM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  }
+]

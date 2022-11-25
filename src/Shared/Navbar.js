@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="px-4 py-5 mx-auto bg-black text-white sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className="px-4 py-5 mx-auto bg-[#5e78aa] text-white sm:max-w-xl md:max-w-full lg:max-w-[1440px] md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <Link
             to="/"
@@ -29,7 +29,7 @@ const Navbar = () => {
             className="inline-flex items-center"
           >
             <img className="w-16 rounded-md" src={logo} alt="" />
-            <span className="ml-2 text-4xl  font-bold tracking-wide text-cyan-400 ">
+            <span className="ml-2 text-4xl  font-bold tracking-wide text-amber-200 ">
               CarMax
             </span>
           </Link>
@@ -41,7 +41,7 @@ const Navbar = () => {
                 title="Home"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
@@ -55,7 +55,7 @@ const Navbar = () => {
                 title="Blog"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
@@ -70,7 +70,7 @@ const Navbar = () => {
                 title="My Reviews"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
@@ -85,7 +85,7 @@ const Navbar = () => {
                 title="Add Service"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
@@ -99,7 +99,7 @@ const Navbar = () => {
                 title="Log Out"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
@@ -122,7 +122,7 @@ const Navbar = () => {
                 title="Log In"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
@@ -203,7 +203,7 @@ const Navbar = () => {
                           title="Home"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
@@ -217,7 +217,7 @@ const Navbar = () => {
                           title="My Reviews"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
@@ -231,7 +231,7 @@ const Navbar = () => {
                           title="Blog"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
@@ -245,7 +245,7 @@ const Navbar = () => {
                           title="Add Service"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
@@ -259,7 +259,7 @@ const Navbar = () => {
                           title="Log Out"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-bold text-lg tracking-wide text-cyan-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >

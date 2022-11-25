@@ -5,7 +5,6 @@ import logo from "../assets/logo.png";
 const Footer = () => {
   return (
     <footer className="px-4 divide-y  text-gray-800">
-      <hr className="w-full" />
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-1/3">
           <Link className="flex justify-center space-x-3 lg:justify-start">
@@ -14,7 +13,7 @@ const Footer = () => {
                 <img src={logo} alt="" />
               </p>
             </div>
-            <span className="self-center text-4xl text-cyan-700 font-bold">
+            <span className="self-center text-4xl text-amber-200 font-bold">
               CarMax
             </span>
           </Link>

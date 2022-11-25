@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Nissan Rogue",
+    "company": "nissan",
+    "img": "https://www.motortrend.com/uploads/2022/09/2023_Nissan_Rogue-front-three-quarter-view-01.jpg",
+    "resellPrice": "12000",
+    "newPrice": "16500",
+    "location": "banani,dhaka",
+    "usingTime": "1.5",
+    "seller": "akram khan",
+    "verified": "",
+    "time": "09:00 PM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  },
+  {
+    "title": "Nissan X-Trail ",
+    "company": "nissan",
+    "img": "https://www.indiacarnews.com/wp-content/uploads/2021/03/New-gen-Nissan-X-Trail-Leaked.jpg",
+    "resellPrice": "15000",
+    "newPrice": "20000",
+    "location": "Gulshan,dhaka",
+    "usingTime": "2",
+    "seller": "Jahir Chowdhury",
+    "verified": "",
+    "time": "05:00 PM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  },
+  {
+    "title": "Nissan Kicks",
+    "company": "nissan",
+    "img": "https://hagerty-media-prod.imgix.net/2021/07/2021_Nissan_Kicks_SRX_9270.jpg?auto=format%2Ccompress&ixlib=php-3.3.0",
+    "resellPrice": "15500",
+    "newPrice": "23000",
+    "location": "Baridhara,dhaka",
+    "usingTime": "2",
+    "seller": "Aminul Islam",
+    "verified": "",
+    "time": "12:30 PM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  },
+  {
+    "title": "Nissan Ariya",
+    "company": "nissan",
+    "img": "https://i.gaw.to/content/photos/54/50/545051-nissan-ariya-2023-plus-cher-que-la-concurrence.jpeg",
+    "resellPrice": "22000",
+    "newPrice": "30000",
+    "location": "Uttara,dhaka",
+    "usingTime": "12",
+    "seller": "Jobaer Ahmed",
+    "verified": "",
+    "time": "10:30 AM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  },
+  {
+    "title": "Nissan GTR",
+    "company": "nissan",
+    "img": "http://cdn.carbuzz.com/gallery-images/1600/605000/100/605196.jpg",
+    "resellPrice": "32000",
+    "newPrice": "25000",
+    "location": "Gulshan,dhaka",
+    "usingTime": "6",
+    "seller": "Sharif ahmed",
+    "verified": "",
+    "time": "10:30 AM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  },
+  {
+    "title": "Nissan Murano",
+    "company": "nissan",
+    "img": "https://www.newcartestdrive.com/wp-content/uploads/2020/05/2020_Nissan_Murano_hero-610x400.jpg",
+    "resellPrice": "40000",
+    "newPrice": "33000",
+    "location": "Dhanmondi,dhaka",
+    "usingTime": "6",
+    "seller": "Nasir Chowdhuri",
+    "verified": "",
+    "time": "9:00 AM",
+    "description": "This car is almost new condition. There is no technical issue. Just buy and Ride."
+  }
+]

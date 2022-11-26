@@ -1,22 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Context/UserContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { logOut, user } = useContext(AuthContext);
 
   // console.log(user);
 
-  // const handleLogOut = () => {
-  //   logOut()
-  //     .then(() => {
-  //       Swal.fire("User Log Out", "", "success");
-  //     })
-  //     .catch((error) => {
-  //       Swal.fire("Opps!", error.message, "error");
-  //     });
-  // };
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire("User Log Out", "", "success");
+      })
+      .catch((error) => {
+        Swal.fire("Opps!", error.message, "error");
+      });
+  };
 
   return (
     <div>
@@ -65,34 +67,34 @@ const Navbar = () => {
 
             <li>
               <NavLink
-                to="/reviews"
-                aria-label="My Reviews"
-                title="My Reviews"
+                to="/myOrders"
+                aria-label="My Orders"
+                title="My Orders"
                 className={({ isActive }) =>
                   isActive
                     ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
-                My Reviews
+                My Orders
               </NavLink>
             </li>
 
             <li>
               <NavLink
-                to="addService"
-                aria-label="Add Service"
-                title="Add Service"
+                to="addCar"
+                aria-label="Add Car"
+                title="Add Car"
                 className={({ isActive }) =>
                   isActive
                     ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
-                Add Service
+                Add Car
               </NavLink>
             </li>
-            <li>
+            <li onClick={handleLogOut}>
               <NavLink
                 to=""
                 aria-label="Log Out"
@@ -106,15 +108,15 @@ const Navbar = () => {
                 Log Out
               </NavLink>
             </li>
-            {/* <li>
-                  <img
-                    aria-label="FAQ"
-                    title={user?.displayName}
-                    className="w-10 rounded-full"
-                    src={user?.photoURL}
-                    alt=""
-                  />
-                </li> */}
+            <li>
+              <img
+                aria-label="FAQ"
+                title={user?.displayName}
+                className="w-10 rounded-full"
+                src={user?.photoURL}
+                alt=""
+              />
+            </li>
             <li>
               <NavLink
                 to="/login"
@@ -187,7 +189,7 @@ const Navbar = () => {
                   </div>
                   <nav>
                     <ul className="space-y-4">
-                      {/* <li>
+                      <li>
                         <img
                           aria-label="FAQ"
                           title={user?.displayName}
@@ -195,7 +197,7 @@ const Navbar = () => {
                           src={user?.photoURL}
                           alt=""
                         />
-                      </li> */}
+                      </li>
                       <li>
                         <NavLink
                           to="home"
@@ -212,16 +214,16 @@ const Navbar = () => {
                       </li>
                       <li>
                         <NavLink
-                          to="reviews"
-                          aria-label="My Reviews"
-                          title="My Reviews"
+                          to="/myOrders"
+                          aria-label="My Orders"
+                          title="My Orders"
                           className={({ isActive }) =>
                             isActive
                               ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
-                          My Reviews
+                          My Orders
                         </NavLink>
                       </li>
                       <li>
@@ -240,16 +242,30 @@ const Navbar = () => {
                       </li>
                       <li>
                         <NavLink
-                          to="addService"
-                          aria-label="Add Service"
-                          title="Add Service"
+                          to="addCar"
+                          aria-label="Add Car"
+                          title="Add Car"
                           className={({ isActive }) =>
                             isActive
                               ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
-                          Add Service
+                          Add Car
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/login"
+                          aria-label="Login"
+                          title="Log In"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          }
+                        >
+                          Log In
                         </NavLink>
                       </li>
                       <li>

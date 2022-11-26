@@ -22,19 +22,20 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="px-4 py-5 mx-auto bg-[#5e78aa] text-white sm:max-w-xl md:max-w-full lg:max-w-[1440px] md:px-24 lg:px-8">
+      <div className="px-4 py-5 mx-auto bg-[#5e78aa] text-white md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <Link
             to="/"
             aria-label="CarMax"
             title="CarMax"
-            className="inline-flex items-center"
+            className="inline-flex items-center "
           >
             <img className="w-16 rounded-md" src={logo} alt="" />
             <span className="ml-2 text-4xl  font-bold tracking-wide text-amber-200 ">
               CarMax
             </span>
           </Link>
+
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
               <NavLink
@@ -94,6 +95,21 @@ const Navbar = () => {
                 Add Car
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="dashboard"
+                aria-label="Dashboard"
+                title="Dashboard"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                }
+              >
+                Dashboard
+              </NavLink>
+            </li>
+
             <li onClick={handleLogOut}>
               <NavLink
                 to=""
@@ -132,7 +148,7 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-          <div className="lg:hidden">
+          <div className="lg:hidden mb-[420px] md:mb-[420px] lg:mb-2">
             <button
               aria-label="Open Menu"
               title="Open Menu"
@@ -171,6 +187,7 @@ const Navbar = () => {
                         </span>
                       </Link>
                     </div>
+
                     <div>
                       <button
                         aria-label="Close Menu"
@@ -254,6 +271,22 @@ const Navbar = () => {
                           Add Car
                         </NavLink>
                       </li>
+
+                      <li>
+                        <NavLink
+                          to="dashboard"
+                          aria-label="Dashboard"
+                          title="Dashboard"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          }
+                        >
+                          Dashboard
+                        </NavLink>
+                      </li>
+
                       <li>
                         <NavLink
                           to="/login"
@@ -262,7 +295,7 @@ const Navbar = () => {
                           className={({ isActive }) =>
                             isActive
                               ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                              : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
                           Log In

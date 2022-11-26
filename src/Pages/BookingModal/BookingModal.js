@@ -5,21 +5,24 @@ import { AuthContext } from "../../Context/UserContext";
 const BookingModal = ({ setModalControler, specificCar }) => {
   const { user } = useContext(AuthContext);
   console.log(specificCar);
+  const { img } = specificCar;
 
   const time = new Date().getTime();
   const handleBooking = (event) => {
     event.preventDefault();
     const form = event.target;
     const location = form.location.value;
-    const price = form.location.value;
+    const price = form.price.value;
     const name = form.name.value;
+    const title = form.title.value;
     const email = form.email.value;
     const phone = form.phone.value;
-    console.log(location, name, email, phone, price, time);
+    console.log(location, name, title, email, phone, price, time);
     // setModalControler(false);
     const booking = {
       meetingLocation: location,
-      title: name,
+      image: img,
+      title,
       email,
       phone,
       price,
@@ -69,14 +72,7 @@ const BookingModal = ({ setModalControler, specificCar }) => {
               placeholder="Your Name"
               className="input w-full input-bordered"
             />
-            <input
-              name="name"
-              type="text"
-              defaultValue={time}
-              disabled
-              placeholder="Your Name"
-              className="input w-full input-bordered"
-            />
+
             <input
               name="email"
               type="email"
@@ -86,15 +82,15 @@ const BookingModal = ({ setModalControler, specificCar }) => {
               className="input w-full input-bordered"
             />
             <input
-              name="itemName"
+              name="title"
               type="text"
               defaultValue={specificCar.title}
               disabled
-              placeholder="Your Name"
+              placeholder="Car Name"
               className="input w-full input-bordered"
             />
             <input
-              name="itemName"
+              name="price"
               type="text"
               defaultValue={specificCar.resellPrice}
               disabled
@@ -104,12 +100,14 @@ const BookingModal = ({ setModalControler, specificCar }) => {
             <input
               name="location"
               type="text"
+              required
               placeholder="Meeting location"
               className="input w-full input-bordered"
             />
             <input
               name="phone"
               type="text"
+              required
               placeholder="Phone Number"
               className="input w-full input-bordered"
             />

@@ -10,6 +10,7 @@ import AddCar from "../../Pages/AddCar/AddCar";
 import Blog from "../../Pages/Blog/Blog";
 import PrivateRoute from "../../Routes/PrivetRoute/PrivetRoute";
 import BookingModal from "../../Pages/BookingModal/BookingModal";
+import DashboardLayout from "../../Layout/Dashboard/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -28,12 +29,6 @@ export const router = createBrowserRouter([
       { path: "/hondacars", element: <Cars /> },
       { path: "/login", element: <Login /> },
       { path: "/signup", element: <SignUp /> },
-      // {
-      //   path: "/bookingCar/:id",
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:5000/bookingCar/${params.id}`),
-      //   element: <BookingModal />,
-      // },
       {
         path: "/myOrders",
         element: (
@@ -54,4 +49,9 @@ export const router = createBrowserRouter([
       { index: true, element: <Home /> },
     ],
   },
+  {
+    path: "/dashboard", element: <DashboardLayout />, errorElement: <ErrorPage />, children: [
+      
+    ]
+  }
 ]);

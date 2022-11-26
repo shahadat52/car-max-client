@@ -6,7 +6,7 @@ const Brand = ({ brand }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl image-full">
       <figure>
-        <img src={img} alt="Shoes" />
+        <img src={img} alt="Company" />
       </figure>
       <div className="card-body">
         <h2 className="card-title uppercase text-white">{name}</h2>

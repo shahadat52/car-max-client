@@ -11,6 +11,10 @@ import Blog from "../../Pages/Blog/Blog";
 import PrivateRoute from "../../Routes/PrivetRoute/PrivetRoute";
 import BookingModal from "../../Pages/BookingModal/BookingModal";
 import DashboardLayout from "../../Layout/Dashboard/DashboardLayout";
+import AllUsers from "../../Pages/AllUsers/AllUsers";
+import AllSellers from "../../Pages/AllSellers/AllSellers";
+import AllBuyers from "../../Pages/AllBuyers/AllBuyers";
+import MyProducts from "../../Pages/MyProducts/MyProducts";
 
 export const router = createBrowserRouter([
   {
@@ -50,8 +54,15 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard", element: <DashboardLayout />, errorElement: <ErrorPage />, children: [
-      
-    ]
-  }
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: "/dashboard/addCar", element: <AddCar /> },
+      { path: "/dashboard/allUsers", element: <AllUsers></AllUsers> },
+      { path: "/dashboard/allSellers", element: <AllSellers></AllSellers> },
+      { path: "/dashboard/allBuyers", element: <AllBuyers></AllBuyers> },
+      { path: "/dashboard/myProducts", element: <MyProducts></MyProducts> },
+    ],
+  },
 ]);

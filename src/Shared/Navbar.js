@@ -39,7 +39,7 @@ const Navbar = () => {
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
               <NavLink
-                to="home"
+                to="/home"
                 aria-label="Home"
                 title="Home"
                 className={({ isActive }) =>
@@ -83,21 +83,7 @@ const Navbar = () => {
 
             <li>
               <NavLink
-                to="addCar"
-                aria-label="Add Car"
-                title="Add Car"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                    : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                }
-              >
-                Add Car
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="dashboard"
+                to="/dashboard"
                 aria-label="Dashboard"
                 title="Dashboard"
                 className={({ isActive }) =>
@@ -255,20 +241,6 @@ const Navbar = () => {
                           }
                         >
                           Blog
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          to="addCar"
-                          aria-label="Add Car"
-                          title="Add Car"
-                          className={({ isActive }) =>
-                            isActive
-                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                              : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          }
-                        >
-                          Add Car
                         </NavLink>
                       </li>
 

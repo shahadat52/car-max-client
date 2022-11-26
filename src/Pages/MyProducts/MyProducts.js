@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/UserContext";
 
 const MyProducts = () => {
   const { user } = useContext(AuthContext);
   const url = `http://localhost:5000/myProducts?email=${user?.email}`;
-  const { data: products = [] } = useQuery({
+  const { data: products = [], refetch } = useQuery({
     queryKey: ["myProducts", user?.email],
     queryFn: async () => {
       const res = await fetch(url);
@@ -14,6 +15,23 @@ const MyProducts = () => {
     },
   });
   console.log(products);
+
+  const deleteProduct = (product) => {
+    console.log(product);
+    fetch(`http://localhost:5000/myProduct/${product._id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          refetch();
+          Swal.fire("Delete", "Successful Deleted", "success");
+        }
+      });
+  };
   return (
     <div className="overflow-x-auto ">
       <table className="table w-full">
@@ -51,9 +69,16 @@ const MyProducts = () => {
                 {booking.price && booking.paid && (
                   <span className="text-green-500">Paid</span>
                 )} */}
-                  <button className="btn btn-primary btn-sm">Pay</button>
+                  <button className="btn btn-primary btn-md">Pay</button>
                 </td>
-                <td>Delete</td>
+                <td>
+                  <button
+                    onClick={() => deleteProduct(product)}
+                    className="btn btn-warning btn-md"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
         </tbody>

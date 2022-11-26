@@ -98,12 +98,11 @@ const Navbar = () => {
 
             <li onClick={handleLogOut}>
               <NavLink
-                to=""
-                aria-label="Log Out"
+                // aria-label="Log Out"
                 title="Log Out"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    ? " text-lg tracking-wide text-gray-50 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >

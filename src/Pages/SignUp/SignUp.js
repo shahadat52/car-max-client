@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -10,6 +10,8 @@ const SignUp = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const [isBuyer, setIsBuyer] = useState(false);
+  const [isSeller, setIsSeller] = useState(false);
 
   const handleCreateUser = (event) => {
     event.preventDefault();
@@ -18,17 +20,20 @@ const SignUp = () => {
     const image = form.image.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, image, email, password);
+    const seller = isSeller;
+    const buyer = isBuyer;
+    console.log(name, image, email, password, "seller:", seller, buyer);
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         Swal.fire("User Create Success", "", "success");
-        updateImageAndName(name, image)
+        updateImageAndName(name, image, seller, buyer)
           .then(() => {
             Swal.fire("Information Updated", "", "success");
-            navigate("/login");
+
             form.reset();
+            saveUser(name, email, seller, buyer);
             navigate("/");
           })
           .catch((error) => {
@@ -47,11 +52,28 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
         Swal.fire("Good job!", "User Login successful!", "success");
+
         // navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
         Swal.fire("Opps", error.message, "error");
+      });
+  };
+
+  const saveUser = (name, email, seller, buyer) => {
+    const user = { name, email, seller, buyer };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        Swal.fire("User Stored", "User Successful stored", "success");
       });
   };
   return (
@@ -122,6 +144,28 @@ const SignUp = () => {
                 className=" w-full px-3 py-2 border rounded-md border-gray-300 bg-cyan-100 focus:border-gray-900 text-gray-900"
                 required
               />
+            </div>
+            <div className="form-control">
+              <label className="label cursor-pointer">
+                <span className="label-text">Are You Buyer</span>
+                <input
+                  name="buyer"
+                  type="checkbox"
+                  onChange={() => setIsBuyer(!isBuyer)}
+                  className="checkbox checkbox-primary"
+                />
+              </label>
+            </div>
+            <div className="form-control">
+              <label className="label cursor-pointer">
+                <span className="label-text">Are You Seller</span>
+                <input
+                  name="seller"
+                  type="checkbox"
+                  onChange={() => setIsSeller(!isSeller)}
+                  className="checkbox checkbox-primary"
+                />
+              </label>
             </div>
           </div>
           <div className="space-y-2">

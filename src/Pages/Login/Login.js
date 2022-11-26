@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/UserContext";
 
 const Login = () => {
+  const [isBuyer, setIsBuyer] = useState(false);
+  const [isSeller, setIsSeller] = useState(false);
   const { login, logInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,16 +17,18 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
-    login(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        Swal.fire("Opps", error.message, "error");
-      });
+    const buyer = isBuyer;
+    console.log(email, password, "cheeking:", isBuyer);
+
+    // login(email, password)
+    //   .then((result) => {
+    //     const user = result.user;
+    //     console.log(user);
+    //     navigate(from, { replace: true });
+    //   })
+    //   .catch((error) => {
+    //     Swal.fire("Opps", error.message, "error");
+    //   });
   };
 
   const handleGoogleLogIn = () => {
@@ -85,6 +89,28 @@ const Login = () => {
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-cyan-100 focus:border-gray-900 text-gray-900"
                   required
                 />
+              </div>
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <span className="label-text">Are You Buyer</span>
+                  <input
+                    name="cheek"
+                    type="checkbox"
+                    onChange={() => setIsBuyer(!isBuyer)}
+                    className="checkbox checkbox-primary"
+                  />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <span className="label-text">Are You Seller</span>
+                  <input
+                    name="cheek"
+                    type="checkbox"
+                    onChange={() => setIsSeller(!isSeller)}
+                    className="checkbox checkbox-primary"
+                  />
+                </label>
               </div>
             </div>
 

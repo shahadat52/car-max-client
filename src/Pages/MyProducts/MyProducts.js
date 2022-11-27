@@ -69,7 +69,7 @@ const MyProducts = () => {
                 {booking.price && booking.paid && (
                   <span className="text-green-500">Paid</span>
                 )} */}
-                  <button className="btn btn-primary btn-md">Pay</button>
+                  <button className="btn btn-primary btn-md">Unsold</button>
                 </td>
                 <td>
                   <button

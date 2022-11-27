@@ -13,8 +13,6 @@ const SignUp = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  // const [createdUserEmail, setCreatedUserEmail] = useState('')
-  //   const [token] = useToken(createdUserEmail);
   const [signUpUserEmail, setSignUpUserEmail] = useState("");
   const [token] = useToken(signUpUserEmail);
 
@@ -28,20 +26,21 @@ const SignUp = () => {
     const image = form.image.value;
     const email = form.email.value;
     const password = form.password.value;
-    const seller = isSeller;
     const buyer = isBuyer;
-    console.log(name, image, email, password, "seller:", seller, buyer);
+    const seller = isSeller;
+    // const userStatus = form.role.value
+    console.log(name, image, email, password, "seller:", buyer, seller);
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         Swal.fire("User Create Success", "", "success");
-        updateImageAndName(name, image, seller, buyer)
+        updateImageAndName(name, image, buyer, seller)
           .then(() => {
             Swal.fire("Information Updated", "", "success");
 
             form.reset();
-            saveUser(name, email, seller, buyer);
+            saveUser(name, email, buyer, seller);
           })
           .catch((error) => {
             Swal.fire("Opps", error.message, "error");
@@ -152,6 +151,20 @@ const SignUp = () => {
                 className=" w-full px-3 py-2 border rounded-md border-gray-300 bg-cyan-100 focus:border-gray-900 text-gray-900"
                 required
               />
+
+            </div>
+            <div>
+              <div className="flex justify-between mb-2">
+                <label htmlFor="password" className="text-sm">
+                  Role
+                </label>
+              </div>
+              {/* <select name="role" className="select select-bordered w-full px-3 py-2 border rounded-md border-gray-300 bg-cyan-100 focus:border-gray-900 text-gray-900" required>
+                <option disabled >What is Your Role</option>
+                <option value="buyer"  >Buyer</option>
+                <option value="seller">Seller</option>
+              </select> */}
+
             </div>
             <div className="form-control">
               <label className="label cursor-pointer">
@@ -159,6 +172,7 @@ const SignUp = () => {
                 <input
                   name="buyer"
                   type="checkbox"
+
                   onChange={() => setIsBuyer(!isBuyer)}
                   className="checkbox checkbox-primary"
                 />

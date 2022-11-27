@@ -1,8 +1,24 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../../Context/UserContext";
 import Navbar from "../../Shared/Navbar";
 
 const DashboardLayout = () => {
+
+  const { user } = useContext(AuthContext);
+  const url = "http://localhost:5000/users";
+
+  const { data: users = [] } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+    },
+  });
+  const userAccess = users.find(use => use.email === user.email)
+  console.log(users, user,);
   return (
     <div>
       <Navbar />
@@ -38,9 +54,23 @@ const DashboardLayout = () => {
         <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80  text-base-content mt-[50px]">
-            <li>
-              <Link to="/dashboard">My Products</Link>
-            </li>
+
+            
+            {
+              userAccess?.seller && <li>
+                <Link to="/dashboard/myOrders">My Orders</Link>
+              </li>
+            }
+            {
+              userAccess?.buyer && <>
+                <li>
+                  <Link to="/dashboard/addCar">Add Car</Link>
+                </li>
+
+                <li>
+                  <Link to="/dashboard/myProducts">My Products</Link>
+                </li></>
+            }
             <li>
               <Link to="/dashboard/allUsers">All users</Link>
             </li>
@@ -50,13 +80,7 @@ const DashboardLayout = () => {
             <li>
               <Link to="/dashboard/AllBuyers">All Buyers</Link>
             </li>
-            <li>
-              <Link to="/dashboard/addCar">Add Car</Link>
-            </li>
 
-            <li>
-              <Link to="/dashboard/myProducts">My Products</Link>
-            </li>
           </ul>
         </div>
       </div>

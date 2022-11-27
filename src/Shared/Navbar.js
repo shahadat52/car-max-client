@@ -11,6 +11,7 @@ const Navbar = () => {
   // console.log(user);
 
   const handleLogOut = () => {
+
     logOut()
       .then(() => {
         Swal.fire("User Log Out", "", "success");
@@ -65,73 +66,77 @@ const Navbar = () => {
                 Blog
               </NavLink>
             </li>
+            {
+              user?.uid ? <><li>
+                <NavLink
+                  to="/myOrders"
+                  aria-label="My Orders"
+                  title="My Orders"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                      : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  }
+                >
+                  My Orders
+                </NavLink>
+              </li>
 
-            <li>
-              <NavLink
-                to="/myOrders"
-                aria-label="My Orders"
-                title="My Orders"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                    : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                }
-              >
-                My Orders
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    aria-label="Dashboard"
+                    title="Dashboard"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    }
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+                <li onClick={handleLogOut}>
+                  <NavLink
+                    // aria-label="Log Out"
+                    title="Log Out"
+                    className={({ isActive }) =>
+                      isActive
+                        ? " text-lg tracking-wide text-gray-50 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    }
+                  >
+                    Log Out
+                  </NavLink>
+                </li>
+                <li>
+                  <img
+                    aria-label="FAQ"
+                    title={user?.displayName}
+                    className="w-10 rounded-full"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                </li>
+              </> : <><li>
+                <NavLink
+                  to="/login"
+                  aria-label="Login"
+                  title="Log In"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                      : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  }
+                >
+                  Log In
+                </NavLink>
+              </li></>
+            }
 
-            <li>
-              <NavLink
-                to="/dashboard"
-                aria-label="Dashboard"
-                title="Dashboard"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                    : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                }
-              >
-                Dashboard
-              </NavLink>
-            </li>
 
-            <li onClick={handleLogOut}>
-              <NavLink
-                // aria-label="Log Out"
-                title="Log Out"
-                className={({ isActive }) =>
-                  isActive
-                    ? " text-lg tracking-wide text-gray-50 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                    : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                }
-              >
-                Log Out
-              </NavLink>
-            </li>
-            <li>
-              <img
-                aria-label="FAQ"
-                title={user?.displayName}
-                className="w-10 rounded-full"
-                src={user?.photoURL}
-                alt=""
-              />
-            </li>
-            <li>
-              <NavLink
-                to="/login"
-                aria-label="Login"
-                title="Log In"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                    : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                }
-              >
-                Log In
-              </NavLink>
-            </li>
+
+
           </ul>
           <div className="lg:hidden mb-[420px] md:mb-[420px] lg:mb-2">
             <button
@@ -192,23 +197,14 @@ const Navbar = () => {
                   <nav>
                     <ul className="space-y-4">
                       <li>
-                        <img
-                          aria-label="FAQ"
-                          title={user?.displayName}
-                          className="w-10 rounded-full"
-                          src={user?.photoURL}
-                          alt=""
-                        />
-                      </li>
-                      <li>
                         <NavLink
-                          to="home"
+                          to="/home"
                           aria-label="Home"
                           title="Home"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                              : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              ? "font-bold text-lg tracking-wide text-amber-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              : " tracking-wide text-black  transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
                           Home
@@ -216,76 +212,85 @@ const Navbar = () => {
                       </li>
                       <li>
                         <NavLink
-                          to="/myOrders"
-                          aria-label="My Orders"
-                          title="My Orders"
-                          className={({ isActive }) =>
-                            isActive
-                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                              : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          }
-                        >
-                          My Orders
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          to="blog"
-                          aria-label="blog"
+                          to="/blog"
+                          aria-label="Blog"
                           title="Blog"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                              : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              ? "font-bold text-lg tracking-wide text-amber-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              : " tracking-wide text-black  transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
                           Blog
                         </NavLink>
                       </li>
+                      {
+                        user?.uid ? <><li>
+                          <NavLink
+                            to="/myOrders"
+                            aria-label="My Orders"
+                            title="My Orders"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "font-bold text-lg tracking-wide text-amber-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            }
+                          >
+                            My Orders
+                          </NavLink>
+                        </li>
 
-                      <li>
-                        <NavLink
-                          to="dashboard"
-                          aria-label="Dashboard"
-                          title="Dashboard"
-                          className={({ isActive }) =>
-                            isActive
-                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                              : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          }
-                        >
-                          Dashboard
-                        </NavLink>
-                      </li>
-
-                      <li>
-                        <NavLink
-                          to="/login"
-                          aria-label="Login"
-                          title="Log In"
-                          className={({ isActive }) =>
-                            isActive
-                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                              : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          }
-                        >
-                          Log In
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          to=""
-                          aria-label="Log Out"
-                          title="Log Out"
-                          className={({ isActive }) =>
-                            isActive
-                              ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                              : " tracking-wide text-gray-700   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          }
-                        >
-                          Log Out
-                        </NavLink>
-                      </li>
+                          <li>
+                            <NavLink
+                              to="/dashboard"
+                              aria-label="Dashboard"
+                              title="Dashboard"
+                              className={({ isActive }) =>
+                                isActive
+                                  ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                  : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              }
+                            >
+                              Dashboard
+                            </NavLink>
+                          </li>
+                          <li onClick={handleLogOut}>
+                            <NavLink
+                              // aria-label="Log Out"
+                              title="Log Out"
+                              className={({ isActive }) =>
+                                isActive
+                                  ? " text-lg tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                  : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              }
+                            >
+                              Log Out
+                            </NavLink>
+                          </li>
+                          <li>
+                            <img
+                              aria-label="FAQ"
+                              title={user?.displayName}
+                              className="w-10 rounded-full"
+                              src={user?.photoURL}
+                              alt=""
+                            />
+                          </li>
+                        </> : <><li>
+                          <NavLink
+                            to="/login"
+                            aria-label="Login"
+                            title="Log In"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            }
+                          >
+                            Log In
+                          </NavLink>
+                        </li></>
+                      }
                     </ul>
                   </nav>
                 </div>

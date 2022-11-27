@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/UserContext";
 
 const MyOrders = () => {
@@ -21,6 +22,23 @@ const MyOrders = () => {
   });
   refetch()
   console.log(bookings);
+
+  const deleteProduct = (product) => {
+    console.log(product);
+    fetch(`http://localhost:5000/myOrders/${product._id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("CarMaxToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          refetch();
+          Swal.fire("Delete", "Successful Deleted", "success");
+        }
+      });
+  };
   return (
     <div>
       {bookings.length? <><div className="overflow-x-auto ">
@@ -58,7 +76,14 @@ const MyOrders = () => {
                   {booking.price && booking.paid && (
                     <span className="text-green-500">Paid</span>
                   )} */}
-                  <button className="btn btn-primary btn-sm">Pay</button>
+                  
+                  <button
+                    onClick={() => deleteProduct(booking)}
+                    className="btn btn-warning btn-md"
+                  >
+                    Delete
+                  </button>
+                
                 </td>
               </tr>
             ))}

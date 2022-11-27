@@ -58,6 +58,7 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     errorElement: <ErrorPage />,
     children: [
+      { path: "/dashboard/myOrders", element: <MyOrders /> },
       { path: "/dashboard/addCar", element: <AddCar /> },
       { path: "/dashboard/allUsers", element: <AllUsers></AllUsers> },
       { path: "/dashboard/allSellers", element: <AllSellers></AllSellers> },

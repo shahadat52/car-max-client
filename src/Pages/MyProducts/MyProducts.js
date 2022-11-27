@@ -33,56 +33,60 @@ const MyProducts = () => {
       });
   };
   return (
-    <div className="overflow-x-auto ">
-      <table className="table w-full">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Status</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products &&
-            products?.map((product, i) => (
-              <tr key={product._id}>
-                <th>{i + 1}</th>
-                <td>
-                  <div className="avatar">
-                    <div className="w-16 rounded">
-                      <img src={product.img} alt="" />
-                    </div>
-                  </div>
-                </td>
-                <td>{product.title}</td>
-                <td>{product.resellPrice}$</td>
-
-                <td>
-                  {/* {booking.price && !booking.paid && (
-                  // <Link to={`/dashboard/payment/${booking._id}`}>
-                  //   <button className="btn btn-primary btn-sm">Pay</button>
-                  // </Link>
-                )}
-                {booking.price && booking.paid && (
-                  <span className="text-green-500">Paid</span>
-                )} */}
-                  <button className="btn btn-primary btn-md">Unsold</button>
-                </td>
-                <td>
-                  <button
-                    onClick={() => deleteProduct(product)}
-                    className="btn btn-warning btn-md"
-                  >
-                    Delete
-                  </button>
-                </td>
+    <div>
+      {
+        products?.length ? <><div className="overflow-x-auto ">
+          <table className="table w-full">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Remove</th>
               </tr>
-            ))}
-        </tbody>
-      </table>
+            </thead>
+            <tbody>
+              {products &&
+                products?.map((product, i) => (
+                  <tr key={product._id}>
+                    <th>{i + 1}</th>
+                    <td>
+                      <div className="avatar">
+                        <div className="w-16 rounded">
+                          <img src={product.img} alt="" />
+                        </div>
+                      </div>
+                    </td>
+                    <td>{product.title}</td>
+                    <td>{product.resellPrice}$</td>
+
+                    <td>
+                      {/* {booking.price && !booking.paid && (
+                    // <Link to={`/dashboard/payment/${booking._id}`}>
+                    //   <button className="btn btn-primary btn-sm">Pay</button>
+                    // </Link>
+                  )}
+                  {booking.price && booking.paid && (
+                    <span className="text-green-500">Paid</span>
+                  )} */}
+                      <button className="btn btn-primary btn-md">Unsold</button>
+                    </td>
+                    <td>
+                      <button
+                        onClick={() => deleteProduct(product)}
+                        className="btn btn-warning btn-md"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div></> : <><h1 className="text-red-500 text-4xl grid h-screen place-items-center">Sorry You have No Products, Please Add Product</h1></>
+      }
     </div>
   );
 };

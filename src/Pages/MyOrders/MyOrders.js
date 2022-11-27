@@ -10,13 +10,13 @@ const MyOrders = () => {
   const { data: bookings = [], refetch } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
-      const res = await fetch(url,{
+      const res = await fetch(url, {
         headers: {
-            authorization: `bearer ${localStorage.getItem('CarMaxToken')}`
+          authorization: `bearer ${localStorage.getItem('CarMaxToken')}`
         }
-    });
+      });
       const data = await res.json();
-     
+
       return data;
     },
   });
@@ -41,34 +41,34 @@ const MyOrders = () => {
   };
   return (
     <div>
-      {bookings.length? <><div className="overflow-x-auto ">
-      <table className="table w-full">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {bookings &&
-            bookings?.map((booking, i) => (
-              <tr key={booking._id}>
-                <th>{i + 1}</th>
-                <td>
-                  <div className="avatar">
-                    <div className="w-16 rounded-full">
-                      <img src={booking.image} alt="" />
+      {bookings?.length ? <><div className="overflow-x-auto ">
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bookings &&
+              bookings?.map((booking, i) => (
+                <tr key={booking._id}>
+                  <th>{i + 1}</th>
+                  <td>
+                    <div className="avatar">
+                      <div className="w-16 rounded-full">
+                        <img src={booking.image} alt="" />
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td>{booking.title}</td>
-                <td>{booking.price}$</td>
+                  </td>
+                  <td>{booking.title}</td>
+                  <td>{booking.price}$</td>
 
-                <td>
-                  {/* {booking.price && !booking.paid && (
+                  <td>
+                    {/* {booking.price && !booking.paid && (
                     // <Link to={`/dashboard/payment/${booking._id}`}>
                     //   <button className="btn btn-primary btn-sm">Pay</button>
                     // </Link>
@@ -76,21 +76,21 @@ const MyOrders = () => {
                   {booking.price && booking.paid && (
                     <span className="text-green-500">Paid</span>
                   )} */}
-                  
-                  <button
-                    onClick={() => deleteProduct(booking)}
-                    className="btn btn-warning btn-md"
-                  >
-                    Delete
-                  </button>
-                
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-    </div></> :<><h1 className="text-red-500 grid h-screen place-items-center">Sorry You have no booking</h1></> }
-      
+
+                    <button
+                      onClick={() => deleteProduct(booking)}
+                      className="btn btn-warning btn-md"
+                    >
+                      Delete
+                    </button>
+
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div></> : <><h1 className="text-red-500 text-4xl grid h-screen place-items-center">Sorry You have no booking</h1></>}
+
     </div>
   );
 };

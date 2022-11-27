@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../Context/UserContext";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const { user } = useContext(AuthContext);
   const url = "http://localhost:5000/users";
 
-  const { data: users = [] } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch(url);
@@ -16,7 +17,22 @@ const AllUsers = () => {
     },
   });
   console.log(users);
+  const handleAdmin = id => {
+    fetch(`http://localhost:5000/users/admin/${id}`, {
+      method: 'PUT',
+      headers: {
+        authorization: `bearer ${localStorage.getItem('CarMaxToken')}`
+      }
+    })
 
+      .then(res => res.json())
+      .then(data => {
+        if (data.modifiedCount > 0) {
+          Swal.fire("Admin", "Successful Make Admin", "success")
+          refetch();
+        }
+      })
+  }
   return (
     <div className="overflow-x-auto ">
       <table className="table w-full">
@@ -47,15 +63,7 @@ const AllUsers = () => {
                 {user.buyer && <td>Buyer</td>}
 
                 <td>
-                  {/* {booking.price && !booking.paid && (
-                    // <Link to={`/dashboard/payment/${booking._id}`}>
-                    //   <button className="btn btn-primary btn-sm">Pay</button>
-                    // </Link>
-                  )}
-                  {booking.price && booking.paid && (
-                    <span className="text-green-500">Paid</span>
-                  )} */}
-                  <button className="btn btn-primary btn-md">Delete</button>
+                  {user?.role !== 'admin' && <button onClick={() => handleAdmin(user._id)} className="btn btn-primary btn-md">Make Admin</button>}
                 </td>
               </tr>
             ))}
@@ -66,3 +74,12 @@ const AllUsers = () => {
 };
 
 export default AllUsers;
+
+{/* {booking.price && !booking.paid && (
+                    // <Link to={`/dashboard/payment/${booking._id}`}>
+                    //   <button className="btn btn-primary btn-sm">Pay</button>
+                    // </Link>
+                  )}
+                  {booking.price && booking.paid && (
+                    <span className="text-green-500">Paid</span>
+                  )} */}

@@ -3,16 +3,24 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/UserContext";
+import useToken from "../../Hooks/useToken";
 
 const SignUp = () => {
   const { createUser, logInWithGoogle, updateImageAndName } =
     useContext(AuthContext);
+  const [isBuyer, setIsBuyer] = useState(false);
+  const [isSeller, setIsSeller] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const [isBuyer, setIsBuyer] = useState(false);
-  const [isSeller, setIsSeller] = useState(false);
+  // const [createdUserEmail, setCreatedUserEmail] = useState('')
+  //   const [token] = useToken(createdUserEmail);
+  const [signUpUserEmail, setSignUpUserEmail] = useState("");
+  const [token] = useToken(signUpUserEmail);
 
+  if (token) {
+    navigate("/");
+  }
   const handleCreateUser = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -34,7 +42,6 @@ const SignUp = () => {
 
             form.reset();
             saveUser(name, email, seller, buyer);
-            navigate("/");
           })
           .catch((error) => {
             Swal.fire("Opps", error.message, "error");
@@ -72,6 +79,7 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setSignUpUserEmail(email);
         console.log(data);
         Swal.fire("User Stored", "User Successful stored", "success");
       });

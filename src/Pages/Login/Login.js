@@ -20,15 +20,15 @@ const Login = () => {
     const buyer = isBuyer;
     console.log(email, password, "cheeking:", isBuyer);
 
-    // login(email, password)
-    //   .then((result) => {
-    //     const user = result.user;
-    //     console.log(user);
-    //     navigate(from, { replace: true });
-    //   })
-    //   .catch((error) => {
-    //     Swal.fire("Opps", error.message, "error");
-    //   });
+    login(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        Swal.fire("Opps", error.message, "error");
+      });
   };
 
   const handleGoogleLogIn = () => {

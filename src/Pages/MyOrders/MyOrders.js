@@ -6,17 +6,24 @@ import { AuthContext } from "../../Context/UserContext";
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
-  const { data: bookings = [] } = useQuery({
+  const { data: bookings = [], refetch } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
-      const res = await fetch(url);
+      const res = await fetch(url,{
+        headers: {
+            authorization: `bearer ${localStorage.getItem('CarMaxToken')}`
+        }
+    });
       const data = await res.json();
+     
       return data;
     },
   });
+  refetch()
   console.log(bookings);
   return (
-    <div className="overflow-x-auto ">
+    <div>
+      {bookings.length? <><div className="overflow-x-auto ">
       <table className="table w-full">
         <thead>
           <tr>
@@ -57,6 +64,8 @@ const MyOrders = () => {
             ))}
         </tbody>
       </table>
+    </div></> :<><h1 className="text-red-500 grid h-screen place-items-center">Sorry You have no booking</h1></> }
+      
     </div>
   );
 };

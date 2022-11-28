@@ -3,28 +3,38 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/UserContext";
+import useToken from "../../Hooks/useToken";
+
 
 const Login = () => {
   const [isBuyer, setIsBuyer] = useState(false);
   const [isSeller, setIsSeller] = useState(false);
+  const [signUpUserEmail, setSignUpUserEmail] = useState("");
   const { login, logInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const [token] = useToken(signUpUserEmail);
 
+
+  if (token) {
+    navigate(from, { replace: true });
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     const buyer = isBuyer;
+    const seller = isSeller;
     console.log(email, password, "cheeking:", isBuyer);
 
     login(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate(from, { replace: true });
+        saveUser(user.displayName, email, buyer, seller);
+        // navigate(from, { replace: true });
       })
       .catch((error) => {
         Swal.fire("Opps", error.message, "error");
@@ -42,6 +52,24 @@ const Login = () => {
       .catch((error) => {
         console.error(error);
         Swal.fire("Opps!", error.message, "error");
+      });
+  };
+
+
+  const saveUser = (name, email, seller, buyer) => {
+    const user = { name, email, seller, buyer };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setSignUpUserEmail(email);
+        console.log(data);
+        Swal.fire("User Stored", "User Successful stored", "success");
       });
   };
   return (

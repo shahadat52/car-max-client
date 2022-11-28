@@ -28,8 +28,6 @@ const SignUp = () => {
     const password = form.password.value;
     const buyer = isBuyer;
     const seller = isSeller;
-    // const userStatus = form.role.value
-    console.log(name, image, email, password, "seller:", buyer, seller);
     createUser(email, password)
       .then((result) => {
         const user = result.user;

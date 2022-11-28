@@ -6,7 +6,7 @@ import { AuthContext } from "../../Context/UserContext";
 const AllSellers = () => {
 
   const { user } = useContext(AuthContext);
-  const url = "http://localhost:5000/users";
+  const url = "https://carmax-server.vercel.app/users";
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
@@ -20,7 +20,7 @@ const AllSellers = () => {
 
   const deleteBuyer = (product) => {
     console.log(product);
-    fetch(`http://localhost:5000/allUsers/${product._id}`, {
+    fetch(`https://carmax-server.vercel.app/allUsers/${product._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("CarMaxToken")}`,

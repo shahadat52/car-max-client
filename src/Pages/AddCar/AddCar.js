@@ -48,7 +48,7 @@ const AddCar = () => {
       description,
       email: user?.email,
     };
-    fetch("http://localhost:5000/car", {
+    fetch("https://carmax-server.vercel.app/car", {
       method: "POST",
       headers: {
         "content-type": "application/json",

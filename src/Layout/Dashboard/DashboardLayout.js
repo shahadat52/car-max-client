@@ -7,7 +7,7 @@ import Navbar from "../../Shared/Navbar";
 const DashboardLayout = () => {
 
   const { user } = useContext(AuthContext);
-  const url = "http://localhost:5000/users";
+  const url = "https://carmax-server.vercel.app/users";
 
   const { data: users = [] } = useQuery({
     queryKey: ["users"],
@@ -57,9 +57,9 @@ const DashboardLayout = () => {
           <ul className="menu p-4 w-80  text-blue-600 mt-[50px]">
 
 
-            {/* {
-              !userAccess?.seller && !userAccess?.buyer && <Link to="/dashboard/myOrders">My Orders</Link>
-            } */}
+            {
+              !userAccess?.seller && !userAccess?.buyer && !userAccess?.role && <Link to="/dashboard/myOrders">My Orders</Link>
+            }
 
             {
               userAccess?.seller && <li>

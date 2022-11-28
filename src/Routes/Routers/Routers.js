@@ -28,8 +28,8 @@ export const router = createBrowserRouter([
       {
         path: "/cars/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/cars?company=${params.id}`),
-        element: <Cars></Cars>,
+          fetch(`https://carmax-server.vercel.app/cars?company=${params.id}`),
+        element: <PrivateRoute><Cars></Cars></PrivateRoute>,
       },
       { path: "/nissancars", element: <Cars /> },
       { path: "/hondacars", element: <Cars /> },

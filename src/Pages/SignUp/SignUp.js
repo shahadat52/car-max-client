@@ -67,7 +67,7 @@ const SignUp = () => {
 
   const saveUser = (name, email, seller, buyer) => {
     const user = { name, email, seller, buyer };
-    fetch("http://localhost:5000/users", {
+    fetch("https://carmax-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -83,7 +83,7 @@ const SignUp = () => {
   };
   return (
     <div className="flex justify-center items-center my-10">
-      <div className="flex flex-col max-w-md  sm:p-10 bg-cyan-300 p-4 rounded-2xl shadow-2xl text-gray-900">
+      <div className="flex flex-col max-w-md  sm:p-10bg-[#fcd19d] p-4 rounded-2xl shadow-2xl text-gray-900">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Registration</h1>
           <p className="text-sm text-gray-500">Create a new account</p>
@@ -104,7 +104,7 @@ const SignUp = () => {
                 name="name"
                 id="name"
                 placeholder="Enter Your Name "
-                className=" w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-cyan-100 text-gray-900"
+                className=" w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-amber-100 text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
@@ -117,7 +117,7 @@ const SignUp = () => {
                 name="image"
                 id="image"
                 placeholder="Enter Your Photo Url"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-cyan-100 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-amber-100 text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
@@ -130,7 +130,7 @@ const SignUp = () => {
                 name="email"
                 id="email"
                 placeholder="Enter Your Email "
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-cyan-100 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-amber-100 text-gray-900"
                 data-temp-mail-org="0"
                 required
               />
@@ -146,7 +146,7 @@ const SignUp = () => {
                 name="password"
                 id="password"
                 placeholder="*******"
-                className=" w-full px-3 py-2 border rounded-md border-gray-300 bg-cyan-100 focus:border-gray-900 text-gray-900"
+                className=" w-full px-3 py-2 border rounded-md border-gray-300 bg-amber-100 focus:border-gray-900 text-gray-900"
                 required
               />
 
@@ -157,7 +157,7 @@ const SignUp = () => {
                   Role
                 </label>
               </div>
-              {/* <select name="role" className="select select-bordered w-full px-3 py-2 border rounded-md border-gray-300 bg-cyan-100 focus:border-gray-900 text-gray-900" required>
+              {/* <select name="role" className="select select-bordered w-full px-3 py-2 border rounded-md border-gray-300 bg-amber-100 focus:border-gray-900 text-gray-900" required>
                 <option disabled >What is Your Role</option>
                 <option value="buyer"  >Buyer</option>
                 <option value="seller">Seller</option>
@@ -192,7 +192,7 @@ const SignUp = () => {
             <div>
               <button
                 type="submit"
-                className="w-full px-8 py-3 font-semibold rounded-md bg-cyan-600 shadow-xl hover:bg-gray-700 hover:text-white text-gray-100"
+                className="w-full px-8 py-3 font-semibold rounded-md bg-orange-300 shadow-xl hover:bg-orange-500 hover:text-white text-gray-100"
               >
                 Sign Up
               </button>

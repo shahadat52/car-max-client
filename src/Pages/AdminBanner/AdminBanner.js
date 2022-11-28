@@ -5,8 +5,8 @@ import Lottie from "lottie-react";
 const AdminBanner = () => {
     return (
         <div>
-            <div className="relative ">
-                <div className=" ">
+            <div className="relative   ">
+                <div className="">
                     <Lottie animationData={car} loop={true} />
                 </div>
             </div>

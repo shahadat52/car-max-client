@@ -7,7 +7,7 @@ import Spinner from "../../Shared/Spinner";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `https://carmax-server.vercel.app/bookings?email=${user?.email}`;
   const { data: bookings = [], refetch } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
@@ -26,7 +26,7 @@ const MyOrders = () => {
 
   const deleteProduct = (product) => {
     console.log(product);
-    fetch(`http://localhost:5000/myOrders/${product._id}`, {
+    fetch(`https://carmax-server.vercel.app/myOrders/${product._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("CarMaxToken")}`,
@@ -40,7 +40,7 @@ const MyOrders = () => {
         }
       });
   };
- 
+
   return (
     <div>
 

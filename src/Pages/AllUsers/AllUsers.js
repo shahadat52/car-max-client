@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const { user } = useContext(AuthContext);
-  const url = "http://localhost:5000/users";
+  const url = "https://carmax-server.vercel.app/users";
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
@@ -18,7 +18,7 @@ const AllUsers = () => {
   });
   console.log(users);
   const handleAdmin = id => {
-    fetch(`http://localhost:5000/users/admin/${id}`, {
+    fetch(`https://carmax-server.vercel.app/users/admin/${id}`, {
       method: 'PUT',
       headers: {
         authorization: `bearer ${localStorage.getItem('CarMaxToken')}`
@@ -36,7 +36,7 @@ const AllUsers = () => {
 
   const deleteProduct = (product) => {
     console.log(product);
-    fetch(`http://localhost:5000/allUsers/${product._id}`, {
+    fetch(`https://carmax-server.vercel.app/allUsers/${product._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("CarMaxToken")}`,

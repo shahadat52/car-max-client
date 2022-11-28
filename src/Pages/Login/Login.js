@@ -58,7 +58,7 @@ const Login = () => {
 
   const saveUser = (name, email, seller, buyer) => {
     const user = { name, email, seller, buyer };
-    fetch("http://localhost:5000/users", {
+    fetch("https://carmax-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -147,7 +147,7 @@ const Login = () => {
                 type="submit"
                 className="w-full px-8 py-3 font-semibold rounded-md  bg-[#f9a947]
                 
-                hover:bg-blue-700 hover:text-white text-gray-100"
+                hover:bg-amber-600 hover:text-white text-gray-100"
               >
                 Sign in
               </button>

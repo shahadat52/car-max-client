@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="px-4 py-5 mx-auto bg-[#5e78aa] text-white md:px-24 lg:px-8">
+      <div className="px-4 py-5 mx-auto bg-[#f9c789] text-white md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <Link
             to="/"
@@ -32,7 +32,7 @@ const Navbar = () => {
             className="inline-flex items-center "
           >
             <img className="w-16 rounded-md" src={logo} alt="" />
-            <span className="ml-2 text-4xl  font-bold tracking-wide text-amber-200 ">
+            <span className="ml-2 text-4xl  font-bold tracking-wide text-blue-600 ">
               CarMax
             </span>
           </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
                 title="Home"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    ? "font-bold text-lg tracking-wide text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
@@ -59,7 +59,7 @@ const Navbar = () => {
                 title="Blog"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    ? "font-bold text-lg tracking-wide text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
@@ -67,20 +67,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             {
-              user?.uid ? <><li>
-                <NavLink
-                  to="/myOrders"
-                  aria-label="My Orders"
-                  title="My Orders"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
-                  }
-                >
-                  My Orders
-                </NavLink>
-              </li>
+              user?.uid ? <>
 
                 <li>
                   <NavLink
@@ -89,7 +76,7 @@ const Navbar = () => {
                     title="Dashboard"
                     className={({ isActive }) =>
                       isActive
-                        ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        ? "font-bold text-lg tracking-wide text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                     }
                   >
@@ -125,7 +112,7 @@ const Navbar = () => {
                   title="Log In"
                   className={({ isActive }) =>
                     isActive
-                      ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                      ? "font-bold text-lg tracking-wide text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       : " tracking-wide text-gray-50   transition-colors duration-200 hover:text-deep-purple-accent-400"
                   }
                 >
@@ -203,7 +190,7 @@ const Navbar = () => {
                           title="Home"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-bold text-lg tracking-wide text-amber-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              ? "font-bold text-lg tracking-wide text-blue-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               : " tracking-wide text-black  transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
@@ -217,7 +204,7 @@ const Navbar = () => {
                           title="Blog"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-bold text-lg tracking-wide text-amber-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              ? "font-bold text-lg tracking-wide text-blue-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               : " tracking-wide text-black  transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
@@ -232,7 +219,7 @@ const Navbar = () => {
                             title="My Orders"
                             className={({ isActive }) =>
                               isActive
-                                ? "font-bold text-lg tracking-wide text-amber-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                ? "font-bold text-lg tracking-wide text-blue-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                 : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
                             }
                           >
@@ -247,7 +234,7 @@ const Navbar = () => {
                               title="Dashboard"
                               className={({ isActive }) =>
                                 isActive
-                                  ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                  ? "font-bold text-lg tracking-wide text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                   : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
                               }
                             >
@@ -283,7 +270,7 @@ const Navbar = () => {
                             title="Log In"
                             className={({ isActive }) =>
                               isActive
-                                ? "font-bold text-lg tracking-wide text-amber-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                ? "font-bold text-lg tracking-wide text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                 : " tracking-wide text-black   transition-colors duration-200 hover:text-deep-purple-accent-400"
                             }
                           >

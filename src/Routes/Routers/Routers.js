@@ -15,6 +15,8 @@ import AllUsers from "../../Pages/AllUsers/AllUsers";
 import AllSellers from "../../Pages/AllSellers/AllSellers";
 import AllBuyers from "../../Pages/AllBuyers/AllBuyers";
 import MyProducts from "../../Pages/MyProducts/MyProducts";
+import DashboardWlc from "../../Pages/DashboardWlc/DashboardWlc";
+import AdminBanner from "../../Pages/AdminBanner/AdminBanner";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +60,7 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     errorElement: <ErrorPage />,
     children: [
+      { path: '/dashboard', element: <AdminBanner /> },
       { path: "/dashboard/myOrders", element: <MyOrders /> },
       { path: "/dashboard/addCar", element: <AddCar /> },
       { path: "/dashboard/allUsers", element: <AllUsers></AllUsers> },

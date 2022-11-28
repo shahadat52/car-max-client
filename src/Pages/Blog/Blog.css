@@ -1,0 +1,24 @@
+.q-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 30px 20px;
+  }
+  
+  @media only screen and (max-width: 651px) {
+    .q-container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 25px;
+      margin: 30px 20px;
+    }
+  }
+  @media only screen and (min-width: 650px) and (max-width: 1000px) {
+    .q-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin: 30px 20px;
+    }
+  }
+  

@@ -33,6 +33,23 @@ const AllUsers = () => {
         }
       })
   }
+
+  const deleteProduct = (product) => {
+    console.log(product);
+    fetch(`http://localhost:5000/allUsers/${product._id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("CarMaxToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          refetch();
+          Swal.fire("Delete", "Successful Deleted", "success");
+        }
+      });
+  };
   return (
     <div className="overflow-x-auto ">
       <table className="table w-full">
@@ -43,6 +60,7 @@ const AllUsers = () => {
             <th>Email</th>
             <th>Role</th>
             <th>Status</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -65,6 +83,14 @@ const AllUsers = () => {
                 <td>
                   {user?.role !== 'admin' && <button onClick={() => handleAdmin(user._id)} className="btn btn-primary btn-md">Make Admin</button>}
                 </td>
+                <td>
+                  <button
+                    onClick={() => deleteProduct(user)}
+                    className="btn btn-warning btn-md"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
         </tbody>
@@ -83,3 +109,5 @@ export default AllUsers;
                   {booking.price && booking.paid && (
                     <span className="text-green-500">Paid</span>
                   )} */}
+
+                

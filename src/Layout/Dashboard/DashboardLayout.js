@@ -48,17 +48,18 @@ const DashboardLayout = () => {
               />
             </svg>
           </label>
-
-          <Outlet />
+          <div className="sm:mt-[400px] md:mt-[400px] lg:mt-[1px]">
+            <Outlet />
+          </div>
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80  text-base-content mt-[50px]">
+          <ul className="menu p-4 w-80  text-blue-600 mt-[50px]">
 
 
-            {
+            {/* {
               !userAccess?.seller && !userAccess?.buyer && <Link to="/dashboard/myOrders">My Orders</Link>
-            }
+            } */}
 
             {
               userAccess?.seller && <li>
@@ -75,15 +76,18 @@ const DashboardLayout = () => {
                   <Link to="/dashboard/myProducts">My Products</Link>
                 </li></>
             }
-            <li>
-              <Link to="/dashboard/allUsers">All users</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/AllSellers">All seller</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/AllBuyers">All Buyers</Link>
-            </li>
+            {
+              userAccess?.role && <><li>
+                <Link to="/dashboard/allUsers">All users</Link>
+              </li>
+                <li>
+                  <Link to="/dashboard/AllSellers">All seller</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/AllBuyers">All Buyers</Link>
+                </li></>
+            }
+
 
           </ul>
         </div>

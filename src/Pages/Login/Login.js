@@ -47,10 +47,10 @@ const Login = () => {
   return (
     <div className="">
       <div className="flex justify-center items-center  my-10">
-        <div className="flex flex-col max-w-md   sm:p-10  text-gray-900 bg-cyan-200 p-4 rounded-2xl shadow-2xl">
+        <div className="flex flex-col max-w-md   sm:p-10  text-gray-900 bg-[#fcd19d] p-4 rounded-2xl shadow-2xl">
           <div className="mb-8 text-center">
             <h1 className="my-3 text-4xl font-bold">Log in</h1>
-            <p className="text-sm text-cyan-700">
+            <p className="text-sm text-blue-600">
               Sign in to access your account
             </p>
           </div>
@@ -70,7 +70,7 @@ const Login = () => {
                   name="email"
                   id="email"
                   placeholder="Enter Your Email Here"
-                  className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-cyan-100 text-gray-900"
+                  className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-[#f7dbb8] text-gray-900"
                   data-temp-mail-org="0"
                   required
                 />
@@ -86,7 +86,7 @@ const Login = () => {
                   name="password"
                   id="password"
                   placeholder="*******"
-                  className="w-full px-3 py-2 border rounded-md border-gray-300 bg-cyan-100 focus:border-gray-900 text-gray-900"
+                  className="w-full px-3 py-2 border rounded-md border-gray-300 bg-[#f9e1c6] focus:border-gray-900 text-gray-900"
                   required
                 />
               </div>
@@ -117,7 +117,9 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="w-full px-8 py-3 font-semibold rounded-md bg-cyan-600 hover:bg-gray-700 hover:text-white text-gray-100"
+                className="w-full px-8 py-3 font-semibold rounded-md  bg-[#f9a947]
+                
+                hover:bg-blue-700 hover:text-white text-gray-100"
               >
                 Sign in
               </button>

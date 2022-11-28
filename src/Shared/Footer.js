@@ -13,7 +13,7 @@ const Footer = () => {
                 <img src={logo} alt="" />
               </p>
             </div>
-            <span className="self-center text-4xl text-amber-200 font-bold">
+            <span className="self-center text-4xl text-blue-600 font-bold">
               CarMax
             </span>
           </Link>

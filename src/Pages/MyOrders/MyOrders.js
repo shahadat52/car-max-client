@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/UserContext";
+import Spinner from "../../Shared/Spinner";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
@@ -39,8 +40,11 @@ const MyOrders = () => {
         }
       });
   };
+ 
   return (
     <div>
+
+
       {bookings?.length ? <><div className="overflow-x-auto ">
         <table className="table w-full">
           <thead>

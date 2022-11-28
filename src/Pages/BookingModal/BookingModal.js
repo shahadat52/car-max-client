@@ -67,7 +67,7 @@ const BookingModal = ({ setModalControler, specificCar }) => {
             <input
               name="name"
               type="text"
-              defaultValue={user.displayName}
+              defaultValue={user?.displayName}
               disabled
               placeholder="Your Name"
               className="input w-full input-bordered"
@@ -76,7 +76,7 @@ const BookingModal = ({ setModalControler, specificCar }) => {
             <input
               name="email"
               type="email"
-              defaultValue={user.email}
+              defaultValue={user?.email}
               disabled
               placeholder="Email Address"
               className="input w-full input-bordered"

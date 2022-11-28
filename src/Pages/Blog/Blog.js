@@ -45,6 +45,41 @@ const Blog = () => {
         </div>
       </div>
 
+
+
+
+
+      <div className="text-center text-gray-800">
+        <h1 className="text-3xl font-bold mb-10 pb-10">
+          Difference between React and Angular Vue
+        </h1>
+        <div className="q-container text-justify">
+          <div className="Q1-container">
+            <li className="text-2xl font-bold mb-5">
+              React
+            </li>
+            <p>
+              React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta (formerly Facebook) and a community of individual developers and companies. React can be used as a base in the development of single-page, mobile, or server-rendered applications with frameworks like Next.js. However, React is only concerned with state management and rendering that state to the DOM, so creating React applications usually requires the use of additional libraries for routing, as well as certain client-side functionality
+              Facebook uses React extensively in their products (Facebook, Instagram, and WhatsApp).
+            </p>
+          </div>
+          <div className="Q2-container">
+            <li className="text-2xl font-bold mb-5">
+              Angular
+            </li>
+            <hr />
+            <p>
+              Angular developed by Google, was first released in 2010, making it the oldest of the lot. It is a TypeScript-based JavaScript framework. A substantial shift occurred in 2016 on the release of Angular 2 (and the dropping of the “JS” from the original name – AngularJS). Angular 2+ is known as just Angular. Although AngularJS (version 1) still gets updates, we will focus the discussion on Angular. TypeScript-based free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS.</p>
+          </div>
+          <div className="Q3-container">
+            <li className="text-2xl font-bold mb-5">Vue</li>
+            <p>
+              Vue.js, is the youngest member of the group. It was developed by ex-Google employee Evan You in 2014. Over the last several years, Vue has seen a substantial shift in popularity, even though it doesn’t have the backing of a large company. The most current version is always announced on the official Vue website on their releases page. Contributors for Vue are supported by Patreon. Vue; pronounced "view" is an open-source front end JavaScript framework for building user interfaces and single-page applications.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };

@@ -68,13 +68,7 @@ const AllUsers = () => {
             users?.map((user, i) => (
               <tr key={user._id}>
                 <th>{i + 1}</th>
-                {/* <td>
-                  <div className="avatar">
-                    <div className="w-16 rounded-full">
-                      <img src={booking.image} alt="" />
-                    </div>
-                  </div>
-                </td> */}
+
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 {user.seller && <td>Seller</td>}
@@ -110,4 +104,3 @@ export default AllUsers;
                     <span className="text-green-500">Paid</span>
                   )} */}
 
-                

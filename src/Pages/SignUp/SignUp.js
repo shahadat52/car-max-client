@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -10,15 +10,19 @@ const SignUp = () => {
     useContext(AuthContext);
   const [isBuyer, setIsBuyer] = useState(false);
   const [isSeller, setIsSeller] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const [signUpUserEmail, setSignUpUserEmail] = useState("");
+  const navigate = useNavigate();
   const [token] = useToken(signUpUserEmail);
 
-  if (token) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (token) {
+      console.log('alhamdulillah token success');
+      navigate("/");
+    }
+  }, [token, navigate])
+
   const handleCreateUser = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -36,9 +40,8 @@ const SignUp = () => {
         updateImageAndName(name, image, buyer, seller)
           .then(() => {
             Swal.fire("Information Updated", "", "success");
-
-            form.reset();
             saveUser(name, email, buyer, seller);
+
           })
           .catch((error) => {
             Swal.fire("Opps", error.message, "error");
@@ -67,6 +70,7 @@ const SignUp = () => {
 
   const saveUser = (name, email, seller, buyer) => {
     const user = { name, email, seller, buyer };
+    console.log(user);
     fetch("https://carmax-server.vercel.app/users", {
       method: "POST",
       headers: {
@@ -76,9 +80,18 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setSignUpUserEmail(email);
         console.log(data);
-        Swal.fire("User Stored", "User Successful stored", "success");
+        if (data.acknowledge === false) {
+          setSignUpUserEmail(email);
+          console.log(data);
+          Swal.fire(data.message);
+        }
+        else {
+          setSignUpUserEmail(email);
+          Swal.fire('User data stored')
+        }
+
+
       });
   };
   return (

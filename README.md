@@ -8,7 +8,7 @@ Hosted in Firebase -> [Car-Max](https://carmax-8a7a3.web.app)
 
 ## API
 
-Api Link -> [Data Collection Api]( https://carmax-server.vercel.app)
+Api Link -> [Data Collection Api]( https://carmax-server.vercel.apphttps://carmax-server.vercel.app)
 
 ## React Router Dom v6.4
 

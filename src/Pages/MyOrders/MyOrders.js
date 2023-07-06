@@ -53,7 +53,8 @@ const MyOrders = () => {
               <th>Image</th>
               <th>Title</th>
               <th>Price</th>
-              <th>Status</th>
+              <th>Payment</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -72,22 +73,25 @@ const MyOrders = () => {
                   <td>{booking.price}$</td>
 
                   <td>
-                    {/* {booking.price && !booking.paid && (
-                    // <Link to={`/dashboard/payment/${booking._id}`}>
-                    //   <button className="btn btn-primary btn-sm">Pay</button>
-                    // </Link>
-                  )}
-                  {booking.price && booking.paid && (
-                    <span className="text-green-500">Paid</span>
-                  )} */}
+                    {booking.price && !booking.paid && (
+                      <Link to={`/dashboard/payment/${booking._id}`}>
+                        <button className="btn btn-primary btn-sm">Pay</button>
+                      </Link>
+                    )}
+                    {booking.price && booking.paid && (
+                      <span className="text-green-500">Paid</span>
+                    )}
 
+
+
+                  </td>
+                  <td>
                     <button
                       onClick={() => deleteProduct(booking)}
                       className="btn btn-warning btn-md"
                     >
                       Delete
                     </button>
-
                   </td>
                 </tr>
               ))}

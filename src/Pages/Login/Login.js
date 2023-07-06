@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -17,9 +17,12 @@ const Login = () => {
   const [token] = useToken(signUpUserEmail);
 
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (token) {
+      console.log('alhamdulillah token set hoyeche');
+      navigate('/');
+    }
+  }, [token, navigate]);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -33,8 +36,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        saveUser(user.displayName, email, buyer, seller);
-        // navigate(from, { replace: true });
+        setSignUpUserEmail(user.email);
       })
       .catch((error) => {
         Swal.fire("Opps", error.message, "error");
@@ -56,22 +58,23 @@ const Login = () => {
   };
 
 
-  const saveUser = (name, email, seller, buyer) => {
-    const user = { name, email, seller, buyer };
-    fetch("https://carmax-server.vercel.app/users", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setSignUpUserEmail(email);
-        console.log(data);
-        Swal.fire("User Stored", "User Successful stored", "success");
-      });
-  };
+  // const saveUser = (name, email, seller, buyer) => {
+  //   const user = { name, email, seller, buyer };
+  //   fetch("https://carmax-server.vercel.app/users", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //       authorization: `bearer ${localStorage.getItem('carMax')}`
+  //     },
+  //     body: JSON.stringify(user),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setSignUpUserEmail(email);
+  //       console.log(data);
+  //       Swal.fire("User Stored", "User Successful stored", "success");
+  //     });
+  // };
   return (
     <div className="">
       <div className="flex justify-center items-center  my-10">

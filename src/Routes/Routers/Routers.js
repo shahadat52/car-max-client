@@ -17,6 +17,8 @@ import AllBuyers from "../../Pages/AllBuyers/AllBuyers";
 import MyProducts from "../../Pages/MyProducts/MyProducts";
 import DashboardWlc from "../../Pages/DashboardWlc/DashboardWlc";
 import AdminBanner from "../../Pages/AdminBanner/AdminBanner";
+import Payments from "../../Pages/Payments/Payments";
+import PaymentSuccess from "../../Pages/Payments/PaymentSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +32,10 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://carmax-server.vercel.app/cars?company=${params.id}`),
         element: <PrivateRoute><Cars></Cars></PrivateRoute>,
+      },
+      {
+        path: "/payment/success",
+        element: <PaymentSuccess></PaymentSuccess>
       },
       { path: "/nissancars", element: <Cars /> },
       { path: "/hondacars", element: <Cars /> },
@@ -55,6 +61,7 @@ export const router = createBrowserRouter([
       { index: true, element: <Home /> },
     ],
   },
+
   {
     path: "/dashboard",
     element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
@@ -67,6 +74,12 @@ export const router = createBrowserRouter([
       { path: "/dashboard/allSellers", element: <AllSellers></AllSellers> },
       { path: "/dashboard/allBuyers", element: <AllBuyers></AllBuyers> },
       { path: "/dashboard/myProducts", element: <MyProducts></MyProducts> },
+      {
+        path: "/dashboard/payment/:id",
+        loader: async ({ params }) => fetch(`https://carmax-server.vercel.app/payment/${params.id}`),
+        element: <Payments></Payments>
+      },
+
     ],
   },
 ]);
